@@ -87,7 +87,7 @@ Same method and caveats as above. New pages covered: SMERGERS industrial p4-5, S
 
 | Rank | Business | Where | Sales / EBITDA | Ask | Implied multiple | Notes |
 |---|---|---|---|---|---|---|
-| A | Manpower security company | Delhi | $21M / ~$2.1M (10%) | $8.9M for 80-100% | ~4.2x | Largest sensible deal found. Contracted guard and facility services, sticky clients. Check PSARA licence transfer, wage-compliance liabilities and client concentration. |
+| A | Manpower security company | Delhi | Audited ₹155 Cr sales / ~₹10.8 Cr normalised EBITDA | ₹84 Cr ($8.9M) for 80-100% | ~7.8x EBITDA (corrected, see Section 9) | Earlier I showed ~4.2x from run-rate sales; the listing page gives audited figures and the real multiple is ~7.8x. Still a strong asset: 29 years old, zero debt, 21 PSARA licences, ₹164 Cr order book. |
 | B | Precision components (re-confirmed live) | Dewas | $190K / ~$76K (40%) | $263K (full) | ~3.5x | Still listed and the cheapest good deal on the board. |
 | C | Industrial machinery, "profitable" | Pune | $160K / ~$56K (35%) | $280K (full) | ~5x | Small, near Mumbai, so easy to run. |
 | D | Sign maker | Kolkata | $1.93M / ~$174K (9%) | $1.05M (full) | ~6x | Low margin; look for pricing power and repeat brand clients. |
@@ -113,7 +113,7 @@ Preschool, cafe, pet store and apparel manufacturers at ₹10 lakh-1 Cr; an AI v
 
 ### Updated call list
 
-1. Pharmacovigilance SaaS (MergersCorp) and the Delhi manpower security company: the two large, earnings-backed deals.
+1. Pharmacovigilance SaaS (MergersCorp) and the Delhi manpower security company (~7.8x, not 4.2x): the two large, earnings-backed deals.
 2. Dewas precision, Pune wires and cables, Pune machinery: the small, cheap, near-Mumbai manufacturing deals.
 3. Faridabad bicycles and Gurugram packaging: mid-size manufacturers at 5-7x.
 4. Ludhiana fabricated metals, only after confirming margin.
@@ -123,3 +123,69 @@ Preschool, cafe, pet store and apparel manufacturers at ₹10 lakh-1 Cr; an AI v
 - [SMERGERS all-India listings, p1](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=1), [p2](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=2), [p4](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=4)
 - [SMERGERS industrial, p4](https://www.smergers.com/industrial-businesses-for-sale-and-investment-in-india/c33s1407b/?page=4), [p5](https://www.smergers.com/industrial-businesses-for-sale-and-investment-in-india/c33s1407b/?page=5)
 - [IndiaBizForSale, Mumbai](https://www.indiabizforsale.com/business/business-opportunities-for-sale-mumbai)
+
+## 9. Delhi NCR focus (Delhi, Noida, Gurugram, Faridabad, Ghaziabad)
+
+Scope: SMERGERS city pages (Delhi 262 listings, Noida 99, Gurugram 114, Faridabad 37) plus two full listing pages. I read Delhi p1-3, Noida p1-3 and Faridabad p1-3. The Gurugram pages 2-3 returned page 1 again, so only 14 of 114 Gurugram listings were seen (plus small ones from search snippets). Same caveats: seller-reported, my multiples.
+
+### Correction
+
+The Delhi manpower security company is **not** ~4.2x. Its listing page shows audited revenue ₹155.13 Cr, normalised EBITDA ₹10.81 Cr and an ask of ₹84 Cr, which is **~7.8x EBITDA and ~0.5x revenue**. A second SMERGERS entry for what looks like the same business asks $10.5M, so confirm which is current. Other facts from the page: 29 years old, private limited, zero debt, 21 PSARA licences, 16 GST registrations, order book ₹164 Cr covering ~2,531 deployed guards, promoter retiring with no successor, 1+ year transition offered, ~5,300-5,500 staff on payroll (the page gives both). Missing: client concentration, contract terms, balance sheet, key-person risk.
+
+### NCR top picks
+
+| Rank | Business | Where | Sales / EBITDA | Ask | Implied multiple | Notes |
+|---|---|---|---|---|---|---|
+| 1 | Consumer electronics / premium Hi-Fi and AV | New Delhi (South Delhi) | $4.4M / listed 40% (~$1.76M) | ₹40 Cr ($4.2M) | ~2.4x as listed; ~4.8x if the true margin is 20% | Owned 3,000 sq ft property (~₹6 Cr) plus ~₹12 Cr inventory, so ~₹18 Cr of the ask is assets. 8,000+ clients, 20-30 years old, no debt, owner retiring. A 40% margin is implausible for a retailer, so the margin and inventory valuation are the first things to test. Sole proprietorship, so it is an asset and business transfer. |
+| 2 | Furniture company | Noida | $1.58M / ~$237K (15%) | $1.05M | ~4.4x | Real revenue base at a low multiple. Check factory versus trading. |
+| 3 | Fintech company | Noida | $950K / ~$142K (15%) | $530K | ~3.7x | Cheap, but regulatory status (payment aggregator, NBFC, or software only) decides everything. Verify first. |
+| 4 | Recruitment agency | Noida | $530K / ~$185K (35%) | $1.03M | ~5.6x | Recurring client base is the question; fees are often one-off. |
+| 5 | Paper packaging | Gurugram | $760K / ~$152K (20%) | $1.05M | ~6.9x | Carried over from Round 1. Still listed. |
+| 6 | Bicycle manufacturer, 50% | Faridabad | $2.34M / ~$351K (15%) | $950K | ~5.4x | Carried over from Round 1. |
+| 7 | Industrial machinery | Faridabad | $510K / ~$102K (20%) | $630K | ~6.2x | Plain engineering business near Delhi. |
+| 8 | Industrial machinery company | Haryana (listed under Faridabad) | $1.05M / ~$262K (25%) | $2.1M | ~8x | Higher margin, higher price. |
+| 9 | Funeral services company | New Delhi | $1.26M / ~$101K (8%) | $530K | ~5.3x | Unusual, recession-proof demand. Check staff and vendor structure. |
+| 10 | Solar power plant | Noida | $126K / ~$50K (40%) | $350K | ~7x (~14% yield) | Asset-like income. Confirm the power purchase agreement and its remaining term. |
+
+### NCR small tickets (under ~$150K)
+
+| Business | Where | Sales / EBITDA | Ask | Multiple |
+|---|---|---|---|---|
+| Hygiene products | Delhi | $215K / ~$32K (15%) | $53K | ~1.6x |
+| Digital marketing agency (search snippet) | Gurugram | ~$107K / 30-40% | ~$105K | ~2.8x |
+| Pest control | Delhi | $17.7K / ~$6K (35%) | $21K | ~3.4x |
+| Manpower security (small) | Noida | $76K / ~$11K (15%) | $42K | ~3.7x. Could be a bolt-on to a larger security buy. |
+| Heavy machinery | Faridabad | $51K / ~$13K (25%) | $42K | ~3.3x |
+| Printing business | Noida | $38K / ~$13K (34%) | $132K | ~10x. Skip unless it has contracts. |
+
+### NCR deals worth a look but unverified
+
+- **Door, window and furniture fittings exporter, Noida:** $760K sales, ask $530K, 50 staff, clients in 20 countries (search snippet; margin unknown). Export angle is attractive.
+- **Heat exchanger maker, Noida:** 30% stake for $315K (implied ~$1.05M valuation; financials not seen).
+- **Gurugram fintech SaaS (payments and e-invoicing), $210K; medical software for NCR hospitals, $106K; B2B printing e-commerce with ~600 vendors, $157K:** all from search snippets. Open the listings before judging.
+- **Delhi NBFC, $200K full sale:** a licence shell with $22K sales. RBI approval is needed for a change of control.
+
+### NCR skip list
+
+- **Noida bathroom fixtures:** $5M for ~$253K EBITDA (~20x).
+- **Gurugram digital marketing, $2.63M:** ~22x. **Gurugram travel portal, $15.8M:** ~31x. **Gurugram e-commerce, $2.1M:** ~110x.
+- **Faridabad application software, $10.5M:** ~21x. **Snack maker, $1.48M:** ~67x.
+- **Faridabad consumer electronics, $950K:** ~16x.
+- **Delhi staffing, $840K:** ~63x. **Delhi stationery, $1.8M:** thin margin.
+- **Noida toys, $210K:** ~18x. **Noida cloud software, $263K:** ~20x. **Noida rented commercial property, $7.4M:** ~15x.
+- **Noida and Delhi hospitals, schools and a gas station:** priced on assets or land, not earnings.
+- **Listing errors seen:** "Staffing Company, New York City" is tagged Noida; Gurugram "furniture store" and "e-commerce" entries describe different businesses from their titles; Faridabad "Building improvement" is a two-wheeler service platform.
+
+### NCR call order
+
+1. **Delhi Hi-Fi / AV business and the Delhi manpower security company:** the two deals that are large, old and asset- or licence-backed, with retiring owners.
+2. **Noida furniture company and Noida fintech:** cheap multiples on real revenue; verify what each business actually does.
+3. **Faridabad bicycles and machinery, Gurugram packaging:** the manufacturing cluster you can inspect in one day trip.
+4. **A small Noida or Delhi security bolt-on:** only if you buy a larger security business.
+
+### NCR sources
+
+- [SMERGERS Delhi](https://www.smergers.com/businesses-for-sale-in-delhi/c47t2b/), [Noida](https://www.smergers.com/businesses-for-sale-in-noida/c11t2b/), [Gurugram](https://www.smergers.com/businesses-for-sale-in-gurgaon/c10t2b/), [Faridabad](https://www.smergers.com/businesses-for-sale-in-faridabad/c29t2b/)
+- [Delhi manpower security listing](https://www.smergers.com/business/manpower-security-company-for-sale-in-delhi-india/1zo8h/)
+- [Delhi consumer electronics listing](https://www.smergers.com/business/consumer-electronics-business-for-sale-in-new-delhi-india/t5x7t/)
+- [SMERGERS Gurugram IT services](https://www.smergers.com/it-services-businesses-for-sale-in-gurgaon/c10s796t2b/), [Gurugram fintech](https://www.smergers.com/fintech-businesses-for-sale-in-gurgaon/c10s650t2b), [Faridabad switchgear](https://www.smergers.com/switchgear-businesses-for-sale-and-investment-in-faridabad/c29s180b/)
