@@ -78,3 +78,48 @@
 - [Mergerdomo listings](https://www.mergerdomo.com/business-deals/business-for-sale)
 - [BusinessDeals.in buying guide](https://businessdeals.in/blog/business-for-sale-in-india)
 - [Lyndon Advisory EBITDA multiples](https://lyndonadvisory.com/blog/ebitda-multiples-india-2026)
+
+## 8. Round 2: more listings (same date, ~100 further listings opened)
+
+Same method and caveats as above. New pages covered: SMERGERS industrial p4-5, SMERGERS all-India p1, p2, p4, Mergerdomo p2-3 (same 9 listings repeated, no new data) and IndiaBizForSale Mumbai. DealStream and BusinessesForSale India returned 403.
+
+### New top picks
+
+| Rank | Business | Where | Sales / EBITDA | Ask | Implied multiple | Notes |
+|---|---|---|---|---|---|---|
+| A | Manpower security company | Delhi | $21M / ~$2.1M (10%) | $8.9M for 80-100% | ~4.2x | Largest sensible deal found. Contracted guard and facility services, sticky clients. Check PSARA licence transfer, wage-compliance liabilities and client concentration. |
+| B | Precision components (re-confirmed live) | Dewas | $190K / ~$76K (40%) | $263K (full) | ~3.5x | Still listed and the cheapest good deal on the board. |
+| C | Industrial machinery, "profitable" | Pune | $160K / ~$56K (35%) | $280K (full) | ~5x | Small, near Mumbai, so easy to run. |
+| D | Sign maker | Kolkata | $1.93M / ~$174K (9%) | $1.05M (full) | ~6x | Low margin; look for pricing power and repeat brand clients. |
+| E | Travel agency | Pune | $1.52M / ~$228K (15%) | $1.26M (full) | ~5.5x | Check whether the sales figure is gross bookings or net commission. |
+| F | Die casting plant, assets for lease | Tiruvallur | turnover ~₹8.5 Cr | ~$105K a year lease | n/a | Low-capital way to run a working plant before committing to buy. |
+| G | Food processing | Agartala | $101K / ~$30K (30%) | $263K (full) | ~8.7x | "Newly established," far from Mumbai. Low priority. |
+
+### Round 2 listings to skip
+
+- **Dehradun gas station:** $2.1M for ~$61K EBITDA (~34x).
+- **Bengaluru enterprise software:** $840K for ~$44K EBITDA (~19x). **Pune cloud software:** $1.26M for ~$54K (~23x). **Chennai IT services:** $3.06M on ~$31K EBITDA.
+- **Raisen pipes and valves:** $680K for ~$38K EBITDA (~18x).
+- **Bhilwara switchgear:** $1.26M for ~$60K EBITDA (~21x).
+- **Mumbai adhesive 20% stake:** ~28x implied. **Goa scrap metal 10% stake:** ~83x implied.
+- **Tiruppur paper packaging:** $840K at ~5% margin (~12x).
+- **Chennai aircraft equipment wholesale:** $1.58M for ~$178K EBITDA (~9x).
+- **Kothagudem college:** $2.46M for ~$89K EBITDA (~27x).
+- **Mumbai luxury vehicles:** $840K for ~$66K EBITDA (~13x).
+
+### IndiaBizForSale, Mumbai (no financials shown, price bands only)
+
+Preschool, cafe, pet store and apparel manufacturers at ₹10 lakh-1 Cr; an AI voice platform at ₹10-50 lakh; paper-bag machines at up to ₹10 lakh; a "400-cow dairy farm" raising ₹10-25 Cr, which is a funding ask for an upcoming project, not a running business. Nothing here is a priority without financials.
+
+### Updated call list
+
+1. Pharmacovigilance SaaS (MergersCorp) and the Delhi manpower security company: the two large, earnings-backed deals.
+2. Dewas precision, Pune wires and cables, Pune machinery: the small, cheap, near-Mumbai manufacturing deals.
+3. Faridabad bicycles and Gurugram packaging: mid-size manufacturers at 5-7x.
+4. Ludhiana fabricated metals, only after confirming margin.
+
+### Round 2 sources
+
+- [SMERGERS all-India listings, p1](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=1), [p2](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=2), [p4](https://www.smergers.com/businesses-for-sale-in-india/c33t2b/?page=4)
+- [SMERGERS industrial, p4](https://www.smergers.com/industrial-businesses-for-sale-and-investment-in-india/c33s1407b/?page=4), [p5](https://www.smergers.com/industrial-businesses-for-sale-and-investment-in-india/c33s1407b/?page=5)
+- [IndiaBizForSale, Mumbai](https://www.indiabizforsale.com/business/business-opportunities-for-sale-mumbai)
