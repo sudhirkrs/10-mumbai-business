@@ -25,7 +25,7 @@ Investment ranges are from blogs and brand-stated listings; "confidence" is my v
 | 7 | **Hero MotoCorp / Mahindra First Choice** dealerships | ₹50 lakh-1.5 Cr (blog) | Not stated. | Medium, but real dealerships usually need more capital and OEM selection than a blog suggests. Verify before spending time. | Very low |
 | 8 | **Preschools, salons, branded apparel** | ₹10-60 lakh | Breakeven 2-4 years. Salons depend on stylist retention. | Poor for salons; medium for preschools. | Low |
 
-**Scam alert:** Zudio is not a normal franchise. One guide says its only official route is a "Retail Business Associate" form, and others say you cannot buy a Zudio outlet by paying a fee. Several sources warn that unofficial sites collecting "application fees" have cost people ₹10-65 lakh. Never pay anyone other than the franchisor's own website, and ask for the signed franchise agreement first.
+**Zudio:** see Section 7. Trent does run an official franchise route, but it is by invitation, not a product you can buy. Fake Zudio franchise sites have been taken to court and have cost victims lakhs.
 
 ## 3. Resale franchise outlets I found (SMERGERS)
 
@@ -69,3 +69,35 @@ None of these is in your ₹1-3 Cr range. They show that resale franchises are s
 - [Lupin Diagnostics franchise](https://www.franchisebazar.com/blog/lupin-diagnostics-franchise-in-india-cost-investment-profit)
 - [Franchise agreement legal issues (iPleaders)](https://blog.ipleaders.in/franchise-agreement-legal-issues/)
 - [SMERGERS Mumbai florist franchise](https://www.smergers.com/florists-for-sale-in-mumbai/c32s499t2b/), [Delhi QSR/cafe franchise operator](https://www.smergers.com/business/cafe-investment-opportunity-in-delhi-india/a815h/)
+
+## 7. Zudio (Trent / Tata)
+
+**Short answer:** Zudio has one official route to a franchise, an enquiry form. There is no published fee, investment figure or royalty, and Trent decides whether to allot a store at its "absolute discretion". Do not plan ₹2 Cr around it.
+
+### What is verified
+- **Official page** (zudio.com, "Retail Business Associate" form): you submit details of your business, turnover (in crores), GST status and preferred location. A franchise team reviews it, and **only if there is "scope or availability" for allotment does the company contact you.** Submitting guarantees nothing, and communication is by email only. The page states no investment, fee or fraud warning.
+- **Official email for franchise enquiries (as shown on the page):** zudio.rba@trent-tata.com. General help: Zudiohelp@trent-tata.com.
+- **Scale:** most sources put Zudio at ~963 stores at the end of FY26 (198 added that year, six in the UAE), inside Trent's ~1,290 total stores. I could not confirm this against the annual report.
+- **Fraud is real.** The Bombay High Court extended an injunction for Trent against sites using the Zudio name for fake franchise offers (including zudiofranchise.net) and ordered a domain suspended. Reported victims include one who paid ₹2,65,500 after clicking a link, and a Surat man who lost about ₹31 lakh to a fake "helpline" email address.
+
+### What is not verified
+- **Investment, store size, margins and who runs the store:** every figure I saw (₹1-3 Cr, 10-20% margins, 3-5 years payback) comes from franchise blogs and lead-generation sites. One guide describes a "franchise-owned, company-operated" model (you fund the store, Trent runs it) and another says you cannot buy a Zudio store at all. I found no Trent filing that settles this. The share of Zudio stores that are franchised is not in anything I could open.
+- **Whether Trent is accepting franchisees in Delhi NCR or Mumbai now.** Only Trent can say.
+
+### What I would do
+1. Send **one email** to zudio.rba@trent-tata.com and submit the form on zudio.com, typing the address yourself. State your city, turnover and that you have retail or distribution experience. Do not click links in messages or ads.
+2. **Never pay** an application fee, "registration", "security" or "agreement" amount to anyone before you have seen an agreement from Trent on its own letterhead and domain. Trent's own form asks for none.
+3. If Trent invites you, ask in writing: who owns the stock, who employs the staff, what you earn (margin or share of sales), the store size, the fit-out cost and who pays it, the term, and what happens at exit.
+4. Meanwhile, keep the ₹2 Cr plan on the distribution and franchise options already in this repo. If a Zudio allotment comes through, it would replace the franchise sleeve in Mix A, not the distribution core.
+
+### Zudio-style alternatives that do sell franchises
+One blog lists **Max Fashion, Trends and Youstá** as franchise-owned, franchise-operated brands, and others in the same family may exist. This comes from a single, commercially motivated source, so ask each brand directly for current terms before you spend time on it.
+
+### Zudio sources
+- [Zudio Retail Business Associate form](https://www.zudio.com/pages/zudio-franchise)
+- [Bombay High Court extends injunction for Trent against fake Zudio franchise sites (LiveLaw)](https://www.livelaw.in/amp/high-court/bombay-high-court/bombay-high-court-extends-injunction-trent-limited-vs-zudiofranchise-zudio-trademark-infringement-case-245960)
+- [Bar & Bench report on the same case](https://barandbench.com/news/bombay-high-court-extends-interim-relief-trent-limited-trademark-infringement-zudio)
+- [Surat man duped of ₹31 lakh in a fake Zudio franchise scam](https://deshgujarat.com/2025/07/26/surat-man-duped-of-%E2%82%B931-lakh-in-fake-tata-zudio-franchise-scam-2-held/)
+- [Trent Q4 FY26 result note (ICICI Securities)](https://www.icicidirect.com/mailcontent/idirect_trent_q4fy26.pdf)
+- [Trent FY26 store expansion (TipRanks)](https://www.tipranks.com/news/company-announcements/trent-limited-posts-strong-fy26-revenue-growth-on-aggressive-store-expansion)
+- [Zudio franchise model (TheGuideX)](https://theguidex.com/resources/zudio-franchise-model)
