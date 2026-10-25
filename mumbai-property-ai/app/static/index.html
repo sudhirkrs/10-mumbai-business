@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mumbai Property Research</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#667085;--line:#e4e7ec;--acc:#1f5eff;--good:#067647;--bad:#b42318;--warn:#b54708}
+@media(prefers-color-scheme:dark){:root{--bg:#10141a;--card:#181e27;--ink:#e8ecf2;--mut:#98a2b3;--line:#2a3441;--acc:#6b95ff;--good:#47cd89;--bad:#f97066;--warn:#fdb022}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+header{padding:16px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:18px;margin:0;flex:1}main{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+input,select,textarea,button{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+button{cursor:pointer;background:var(--acc);color:#fff;border:0}button.sec{background:none;color:var(--ink);border:1px solid var(--line)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end}label{font-size:12px;color:var(--mut);display:block}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);font-size:14px}
+th{color:var(--mut);font-weight:500;font-size:12px}tr.l{cursor:pointer}tr.l:hover{background:var(--bg)}
+.pill{padding:2px 8px;border-radius:99px;font-size:12px;border:1px solid var(--line);white-space:nowrap}
+.g{color:var(--good)}.b{color:var(--bad)}.w{color:var(--warn)}.m{color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi b{display:block;font-size:20px}.kpi span{font-size:12px;color:var(--mut)}
+.tbl{overflow-x:auto}details{margin:6px 0}pre{white-space:pre-wrap}
+.banner{background:#fff4e5;color:#7a4100;border:1px solid #f5c98b;padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:13px}
+@media(prefers-color-scheme:dark){.banner{background:#2a1f0e;color:#f5c98b;border-color:#5a4116}}
+</style></head><body>
+<header><h1>Mumbai Property Research</h1><span id="ai" class="pill"></span>
+<button class="sec" onclick="seed()">Load demo data</button></header>
+<main>
+<div id="demo" class="banner" hidden>Showing DEMO data (fictional projects, invented prices). Import real listings, IGR Index-II sales and MahaRERA data for real research.</div>
+<div class="card"><div class="row">
+<div><label>Locality</label><input id="f_loc" placeholder="e.g. Powai"></div>
+<div><label>Max price (₹ Cr)</label><input id="f_max" type="number" step="0.1" style="width:110px"></div>
+<div><label>BHK</label><select id="f_bhk"><option value="">any</option><option>1</option><option>2</option><option>3</option></select></div>
+<button onclick="load()">Search</button></div></div>
+<div class="card tbl"><table><thead><tr><th>Listing</th><th>Source</th><th>Ask</th><th>Registered fair value</th><th>Ask vs fair</th><th>Gross yield</th><th>10y IRR</th><th>Score</th><th>Verdict</th></tr></thead><tbody id="rows"></tbody></table><div id="empty" class="m" hidden>No listings yet: load demo data or add some below.</div></div>
+<div id="detail"></div>
+<div class="card"><h3 style="margin-top:0">Add data</h3>
+<label>Paste a Facebook / Instagram / WhatsApp / portal post</label>
+<textarea id="paste" rows="4" style="width:100%" placeholder="2BHK 650 sq ft carpet Powai, Sample Residency, 2.1 Cr, RERA P51800000002, ready to move, OC received"></textarea>
+<div class="row" style="margin-top:8px"><select id="psrc"><option>facebook</option><option>instagram</option><option>whatsapp</option><option>magicbricks</option><option>99acres</option><option>housing</option><option>broker</option></select><button onclick="ingest()">Extract &amp; add</button></div>
+<hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+<div class="row">
+<div><label>Listings CSV/JSON</label><input type="file" id="fl"></div><button class="sec" onclick="imp('listings','fl')">Import</button>
+<div><label>IGR Index-II sales CSV</label><input type="file" id="ft"></div><button class="sec" onclick="imp('transactions','ft')">Import</button>
+<div><label>MahaRERA projects CSV/JSON</label><input type="file" id="fr"></div><button class="sec" onclick="imp('rera','fr')">Import</button></div>
+<div id="msg" class="m" style="margin-top:8px"></div></div>
+</main>
+<script>
+const $=id=>document.getElementById(id), fmt=n=>n==null?'–':n>=1e7?'₹'+(n/1e7).toFixed(2)+' Cr':n>=1e5?'₹'+(n/1e5).toFixed(1)+' L':'₹'+Math.round(n).toLocaleString('en-IN');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const vc=v=>({'STRONG BUY':'g','BUY AT TARGET PRICE':'g','NEGOTIATE HARD':'w','VERIFY FIRST':'w','PASS':'m','AVOID':'b'}[v]||'m');
+async function j(u,o){const r=await fetch(u,o);if(!r.ok)throw new Error((await r.json().catch(()=>({}))).detail||r.statusText);return r.json()}
+async function status(){const s=await j('/api/status');$('ai').textContent=s.ai.enabled?'AI on · '+Object.values(s.ai.models).join(' / '):'AI off (rules only) – set ANTHROPIC_API_KEY';
+ $('demo').hidden=!s.counts.listings}
+async function load(){const q=new URLSearchParams();if($('f_loc').value)q.set('locality',$('f_loc').value);
+ if($('f_max').value)q.set('max_price',$('f_max').value*1e7);if($('f_bhk').value)q.set('bhk',$('f_bhk').value);
+ const d=await j('/api/listings?'+q);$('empty').hidden=d.length>0;
+ $('rows').innerHTML=d.map(x=>`<tr class="l" onclick="show('${x.id}')"><td>${esc(x.title)}<div class="m">${esc(x.locality)}</div></td><td>${esc(x.source)}</td><td>${fmt(x.ask_price)}</td><td>${fmt(x.fair_value)} <span class="m">${x.confidence||''}</span></td>
+ <td class="${x.ask_vs_fair_pct>5?'b':x.ask_vs_fair_pct<=0?'g':''}">${x.ask_vs_fair_pct==null?'–':x.ask_vs_fair_pct+'%'}</td><td>${x.gross_yield_pct??'–'}%</td><td>${x.base_irr_pct??'–'}%</td><td><b>${x.score}</b></td><td class="${vc(x.verdict)}">${x.verdict}</td></tr>`).join('');status()}
+async function show(id){$('detail').innerHTML='<div class="card">Analysing… (AI models working)</div>';
+ const r=await j(`/api/listings/${id}/report`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+ const v=r.price_check,t=r.returns,d=r.decision,c=t.cost,f=t.financing,s=t.scenarios;
+ const md=esc(r.analysis_md).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^- /gm,'• ');
+ $('detail').innerHTML=`<div class="card"><h2 style="margin:0">${esc(r.listing.title)||esc(r.listing.project_name)} <span class="${vc(d.decision)}">${d.decision}</span></h2>
+ <div class="m">Decision by ${esc(d.by)} · score ${r.score.total}/100 · price confidence: ${v.confidence}</div>
+ <p>${esc(d.rationale||'')}</p>${(d.conditions||[]).map(x=>'<div>☐ '+esc(x)+'</div>').join('')}
+ ${r.data_gaps.length?'<p class="w">Data gaps: '+r.data_gaps.map(esc).join('; ')+'</p>':''}</div>
+ <div class="card"><h3 style="margin-top:0">Price reality</h3><div class="grid">
+ <div class="kpi"><b>${fmt(v.ask_price)}</b><span>Quoted (₹${v.ask_psf_carpet?.toLocaleString('en-IN')}/sqft carpet)</span></div>
+ <div class="kpi"><b>${fmt(v.fair_value)}</b><span>Registered-deal fair value (${fmt(v.fair_value_low)}–${fmt(v.fair_value_high)})</span></div>
+ <div class="kpi"><b>${fmt(v.target_price)}</b><span>Offer target</span></div><div class="kpi"><b>${fmt(v.walk_away_price)}</b><span>Walk-away</span></div>
+ ${r.quote_to_deal?`<div class="kpi"><b>${r.quote_to_deal.typical_discount_pct}%</b><span>Typical discount of closed deals to asks (${r.quote_to_deal.n_deals} deals)</span></div>`:''}</div>
+ ${(v.warnings||[]).map(w=>'<p class="w">⚠ '+esc(w)+'</p>').join('')}
+ <details><summary>Registered deals used (${v.comps_used||0}, ${v.tier||'n/a'}-level)</summary><table><tr><th>Date</th><th>Project</th><th>Area</th><th>Agreement value</th><th>Doc</th></tr>${(v.recent_deals||[]).map(x=>`<tr><td>${x.date}</td><td>${esc(x.project)}</td><td>${x.area_sqft} ${x.basis}</td><td>${fmt(x.agreement_value)}</td><td>${esc(x.doc_no)}</td></tr>`).join('')}</table></details></div>
+ ${t.expected_rent_month?`<div class="card"><h3 style="margin-top:0">Returns <span class="m">(hold ${t.hold_years}y; rent ${t.rent_source})</span></h3><div class="grid">
+ <div class="kpi"><b>${fmt(t.expected_rent_month)}/mo</b><span>Expected rent</span></div><div class="kpi"><b>${t.gross_yield_pct}%</b><span>Gross yield</span></div><div class="kpi"><b>${t.net_yield_pct}%</b><span>Net yield on all-in cost</span></div>
+ <div class="kpi"><b>${fmt(f.emi)}</b><span>EMI (rent covers ${f.rent_covers_emi_pct}%)</span></div><div class="kpi"><b>${fmt(f.equity_needed)}</b><span>Cash needed upfront</span></div></div>
+ <table style="margin-top:10px"><tr><th>Scenario</th><th>Appreciation p.a.</th><th>Value at exit</th><th>Unlevered IRR</th><th>Levered IRR</th></tr>
+ ${['bear','base','bull'].map(k=>`<tr><td>${k}</td><td>${s[k].cagr_pct}%</td><td>${fmt(s[k].value_at_exit)}</td><td>${s[k].unlevered_irr_pct}%</td><td>${s[k].levered_irr_pct}%</td></tr>`).join('')}</table>
+ <details><summary>All-in cost: ${fmt(c.all_in)} (+${c.extra_pct}%)</summary>${Object.entries(c.items).map(([k,x])=>`<div>${k.replace(/_/g,' ')}: ${fmt(x)}</div>`).join('')}</details></div>`:''}
+ <div class="card"><h3 style="margin-top:0">Analysis</h3><div style="white-space:pre-wrap">${md}</div></div>
+ ${r.inventory?`<div class="card"><h3 style="margin-top:0">Inventory</h3>${Object.entries(r.inventory).map(([k,x])=>`<div>${k.replace(/_/g,' ')}: ${esc(JSON.stringify(x))}</div>`).join('')}</div>`:''}
+ <div class="card"><h3 style="margin-top:0">Verify before paying</h3>${r.checklist.map(x=>'<div>☐ '+esc(x)+'</div>').join('')}</div>`;
+ $('detail').scrollIntoView({behavior:'smooth'})}
+async function seed(){await j('/api/demo/seed',{method:'POST'});load()}
+async function ingest(){try{const l=await j('/api/ingest/text',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:$('paste').value,source:$('psrc').value})});
+ $('msg').textContent=`Added (${l.extraction}): ${l.bhk||'?'} BHK ${l.locality||'?'} ${fmt(l.ask_price)}`;load()}catch(e){$('msg').textContent=e.message}}
+async function imp(k,id){const f=$(id).files[0];if(!f)return;const fd=new FormData();fd.append('file',f);
+ try{const r=await j('/api/import/'+k,{method:'POST',body:fd});$('msg').textContent='Imported '+r.imported+' '+k;load()}catch(e){$('msg').textContent=e.message}}
+load();
+</script></body></html>
