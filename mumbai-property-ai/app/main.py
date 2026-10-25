@@ -125,7 +125,7 @@ def ingest_rera(req: ReraPaste):
 
 
 @app.get("/api/area/{locality}")
-def area(locality: str):
+def area(locality: str, budget: float = 15_500_000):
     from datetime import datetime
     from .models import Listing
     from .returns import project_returns
@@ -136,9 +136,13 @@ def area(locality: str):
     ref = None
     if m.ref_psf_low and m.ref_psf_high:
         mid = (m.ref_psf_low + m.ref_psf_high) / 2
-        price = round(mid * 650 * SALEABLE_PER_CARPET, -4)
-        ref = {"desc": "Reference 2BHK, 650 sq ft carpet, ready, at mid asking benchmark", "price": price,
-               "returns": project_returns(Listing(locality=m.locality, carpet_sqft=650, ask_price=price, status="ready"),
+        carpet_at = lambda psf: round(budget / (psf * SALEABLE_PER_CARPET))
+        c_lo, c_mid, c_hi = carpet_at(m.ref_psf_high), carpet_at(mid), carpet_at(m.ref_psf_low)
+        price = round(budget, -4)
+        ref = {"desc": f"2BHK at your budget, {c_mid} sq ft carpet (mid benchmark), ready",
+               "price": price, "carpet_range": [c_lo, c_hi], "carpet_mid": c_mid,
+               "fits_2bhk": c_mid >= 480,
+               "returns": project_returns(Listing(locality=m.locality, carpet_sqft=c_mid, ask_price=price, status="ready"),
                                           m, BuyerInputs(), price)}
     return {"market": m.model_dump(), "reference_home": ref,
             "research": store.get("research", m.locality.lower()),
