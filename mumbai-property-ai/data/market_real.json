@@ -1,0 +1,22 @@
+[
+ {"locality":"Chembur","ref_psf_low":24200,"ref_psf_high":32650,"rent_psf_month":83,
+  "appreciation_bear":0.02,"appreciation_base":0.05,"appreciation_bull":0.08,"rent_growth":0.04,
+  "sources":["https://www.epcworld.in/?p=35299","https://housing.com/price-trends/property-rates-for-buy-in-chembur_mumbai-P672edzqhbl4ygkfv","https://homebazaar.com/knowledge/latest-property-rates-in-mumbai/","https://www.rustomjee.com/blog/chembur-real-estate-investment-potential/"],
+  "note":"Asking-price spread from web snippets (Housing ~24.2k, EPC Q2-2026 ~24.7k, Homebazaar ~32.7k). Yield 2.5-3% per Rustomjee (developer). Rent psf DERIVED from yield; appreciation is an ASSUMPTION."},
+ {"locality":"Andheri West","ref_psf_low":24500,"ref_psf_high":41550,"rent_psf_month":100,
+  "appreciation_bear":0.02,"appreciation_base":0.05,"appreciation_bull":0.08,"rent_growth":0.04,
+  "sources":["https://www.jllhomes.co.in/blogs/top-10-residential-areas-to-invest-in-2025-mumbai-edition","https://homebazaar.com/knowledge/property-rates-in-andheri/","https://www1.housing.com/price-trends/property-rates-for-buy-in-tarapore_gardens_andheri_west_mumbai-P64oynpr1b1tddk4x"],
+  "note":"Very wide: JLL 2025 ~36k, Homebazaar ~41.6k, one Housing.com project ~24.5k. Yield ~2.8% (JLL). Rent derived; appreciation assumed."},
+ {"locality":"Andheri East","ref_psf_low":27500,"ref_psf_high":31600,"rent_psf_month":83,
+  "appreciation_bear":0.02,"appreciation_base":0.05,"appreciation_bull":0.08,"rent_growth":0.04,
+  "sources":["https://www.jllhomes.co.in/blogs/top-10-residential-areas-to-invest-in-2025-mumbai-edition","https://homebazaar.com/knowledge/property-rates-in-andheri/"],
+  "note":"JLL 2025 ~27.5k, Homebazaar ~31.6k. Yield ~2.6% (JLL). Rent derived; appreciation assumed."},
+ {"locality":"Sion","ref_psf_low":21000,"ref_psf_high":37000,"rent_psf_month":105,
+  "appreciation_bear":0.02,"appreciation_base":0.055,"appreciation_bull":0.09,"rent_growth":0.04,
+  "sources":["https://www.sobha.com/blog/mumbai-flat-price-heatmap-mahalaxmi-powai/","https://www.squareyards.com/mumbai-residential-property/surya-sadan/57267/project"],
+  "note":"Sobha Jan-2026 range 21-37k (+15.7% YoY, developer blog, one year only: not extrapolated); Square Yards Sion West asking ~31.75k. No yield source found: 3% ASSUMED. Rent derived."},
+ {"locality":"Wadala","ref_psf_low":22000,"ref_psf_high":40000,"rent_psf_month":115,
+  "appreciation_bear":0.02,"appreciation_base":0.055,"appreciation_bull":0.09,"rent_growth":0.04,
+  "sources":["https://www.sobha.com/blog/mumbai-flat-price-heatmap-mahalaxmi-powai/","https://sattvagroup.com/?p=65478","https://rentu.in/news/10000017/dosti-eastern-bay-wadala-flats-on-sale-and-rent-review"],
+  "note":"Range 22-40k (Sobha, Sattva); Rentu median ask ~37.1k carpet (premium-project skew). Yield ~3.2-3.5% from a low-rigour blog. Rent derived."}
+]

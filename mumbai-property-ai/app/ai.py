@@ -150,3 +150,25 @@ def decide(facts: dict, analysis: str, rules_verdict: str) -> dict:
                 "by": MODELS["decider"]}
     except Exception:
         return fallback
+
+
+# ---------- Area research (Haiku + live web search) ----------
+AREA_SYS = ("You are a Mumbai property researcher with web search. Find CURRENT information and report only what "
+            "sources state. Return ONLY JSON: {\"price_trend\": str, \"rent_trend\": str, "
+            "\"active_projects\": [{\"name\": str, \"builder\": str, \"indicative_price\": str, \"url\": str, \"note\": str}], "
+            "\"listing_snapshots\": [{\"title\": str, \"price\": str, \"url\": str}], "
+            "\"risks\": [str], \"gaps\": [str]}. Every item needs a source url. Put anything you could not find in gaps. "
+            "These are asking prices/claims, not registered transactions: say so.")
+
+
+def area_research(locality: str, budget: str = "") -> dict:
+    if not enabled():
+        return {"error": "ANTHROPIC_API_KEY not set: live web research is unavailable."}
+    q = (f"{locality}, Mumbai: current resale and new-launch 1-3 BHK prices per sq ft, active RERA-registered projects, "
+         f"recent rents, builder delays or complaints, notable news in the last 6 months. {budget}")
+    try:
+        txt = _ask("researcher", AREA_SYS, q, 2500,
+                   tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 6}])
+        return _json(txt) or {"error": "No structured result", "raw": txt[:1500]}
+    except Exception as e:
+        return {"error": f"Research failed: {type(e).__name__}"}

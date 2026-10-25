@@ -9,7 +9,7 @@ from ..models import Listing
 
 LOCALITIES = ["Andheri West", "Andheri East", "Bandra West", "Bandra East", "Powai", "Goregaon East",
               "Goregaon West", "Malad West", "Malad East", "Kandivali East", "Kandivali West",
-              "Borivali West", "Borivali East", "Chembur", "Mulund West", "Mulund East", "Worli",
+              "Borivali West", "Borivali East", "Chembur", "Sion", "Sion West", "Sion East", "Matunga", "Mulund West", "Mulund East", "Worli",
               "Lower Parel", "Dadar", "Prabhadevi", "Santacruz", "Vile Parle", "Juhu", "Versova",
               "Ghatkopar", "Vikhroli", "Kurla", "Wadala", "Mahim", "Colaba", "Malabar Hill",
               "Parel", "Byculla", "Jogeshwari", "Dahisar", "Bhandup", "Kanjurmarg"]

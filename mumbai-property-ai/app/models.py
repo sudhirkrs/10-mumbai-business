@@ -78,6 +78,9 @@ class MarketParams(BaseModel):
     appreciation_base: float = 0.05
     appreciation_bull: float = 0.08
     rent_growth: float = 0.04
+    ref_psf_low: Optional[float] = None               # INR / sqft SALEABLE, portal/developer asking benchmark
+    ref_psf_high: Optional[float] = None
+    sources: list[str] = Field(default_factory=list)
     note: str = ""
 
 

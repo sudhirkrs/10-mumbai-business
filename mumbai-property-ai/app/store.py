@@ -8,7 +8,7 @@ import uuid
 from typing import Iterable
 
 DB_PATH = os.environ.get("PROPAI_DB", os.path.join(os.path.dirname(__file__), "..", "data", "propai.db"))
-COLLECTIONS = ("listings", "transactions", "rera", "market")
+COLLECTIONS = ("listings", "transactions", "rera", "market", "research")
 
 
 def _conn() -> sqlite3.Connection:
@@ -20,7 +20,7 @@ def _conn() -> sqlite3.Connection:
 
 def put(coll: str, obj: dict, key: str | None = None) -> str:
     key = key or obj.get("id") or uuid.uuid4().hex[:10]
-    obj = {**obj, "id": key} if coll != "rera" and coll != "market" else obj
+    obj = {**obj, "id": key} if coll not in ("rera", "market", "research") else obj
     with _conn() as c:
         c.execute(f"INSERT OR REPLACE INTO {coll} (id, data) VALUES (?, ?)", (key, json.dumps(obj)))
     return key

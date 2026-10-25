@@ -76,6 +76,20 @@ def verify_price(l: Listing, txns: list[Transaction], mkt: MarketParams | None,
         comps, tier = collect(loc, 1.5), "locality"
 
     warnings: list[str] = []
+    if not comps and mkt and mkt.ref_psf_low and mkt.ref_psf_high:
+        lo, hi = mkt.ref_psf_low * SALEABLE_PER_CARPET, mkt.ref_psf_high * SALEABLE_PER_CARPET
+        mid = (lo + hi) / 2
+        gap = (price - mid * carpet) / (mid * carpet)
+        out.update({"tier": "area-asking-benchmark", "comps_used": 0, "confidence": "low",
+                    "fair_psf_median": round(mid), "fair_psf_low": round(lo), "fair_psf_high": round(hi),
+                    "fair_value": round(mid * carpet), "fair_value_low": round(lo * carpet),
+                    "fair_value_high": round(hi * carpet), "ask_vs_fair_pct": round(gap * 100, 1),
+                    "target_price": round(lo * carpet), "walk_away_price": round(mid * carpet),
+                    "recent_deals": [],
+                    "warnings": ["NO registered deals imported. This range is only the area's portal/developer "
+                                 "ASKING-price spread (wide, undated, not transactions). Pull Index-II data for "
+                                 "this building before paying anything."]})
+        return out
     if not comps:
         out.update(confidence="none", comps_used=0, tier=None)
         warnings.append("No registered comparable deals found. Import Index-II data for this "

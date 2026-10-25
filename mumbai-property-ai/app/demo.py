@@ -54,3 +54,15 @@ def seed() -> dict:
                       oc_received=True if status == "completed" else None, furnishing="unfurnished",
                       floor=rnd.randint(3, 20), extraction="import"))
     return {"market": len(MARKET), "projects": len(PROJECTS)}
+
+
+def load_real_market() -> int:
+    """Real-data mode: wipes DEMO rows, loads the sourced area baseline. No listings/deals invented."""
+    import json, os
+    for c in ("listings", "transactions", "rera", "market"):
+        store.clear(c)
+    path = os.path.join(os.path.dirname(__file__), "..", "data", "market_real.json")
+    rows = json.load(open(path))
+    for r in rows:
+        store.put("market", r, r["locality"])
+    return len(rows)

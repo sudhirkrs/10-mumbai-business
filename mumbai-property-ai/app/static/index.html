@@ -22,8 +22,9 @@ th{color:var(--mut);font-weight:500;font-size:12px}tr.l{cursor:pointer}tr.l:hove
 @media(prefers-color-scheme:dark){.banner{background:#2a1f0e;color:#f5c98b;border-color:#5a4116}}
 </style></head><body>
 <header><h1>Mumbai Property Research</h1><span id="ai" class="pill"></span>
-<button class="sec" onclick="seed()">Load demo data</button></header>
+<button class="sec" onclick="seed()">Load DEMO data</button></header>
 <main>
+<div id="tabs" class="row" style="margin-bottom:12px"></div><div id="area"></div>
 <div id="demo" class="banner" hidden>Showing DEMO data (fictional projects, invented prices). Import real listings, IGR Index-II sales and MahaRERA data for real research.</div>
 <div class="card"><div class="row">
 <div><label>Locality</label><input id="f_loc" placeholder="e.g. Powai"></div>
@@ -85,5 +86,29 @@ async function ingest(){try{const l=await j('/api/ingest/text',{method:'POST',he
  $('msg').textContent=`Added (${l.extraction}): ${l.bhk||'?'} BHK ${l.locality||'?'} ${fmt(l.ask_price)}`;load()}catch(e){$('msg').textContent=e.message}}
 async function imp(k,id){const f=$(id).files[0];if(!f)return;const fd=new FormData();fd.append('file',f);
  try{const r=await j('/api/import/'+k,{method:'POST',body:fd});$('msg').textContent='Imported '+r.imported+' '+k;load()}catch(e){$('msg').textContent=e.message}}
-load();
+
+const AREAS=['Chembur','Andheri','Sion','Wadala'];let cur='Chembur';
+function tabs(){$('tabs').innerHTML=AREAS.map(a=>`<button class="${a===cur?'':'sec'}" onclick="goArea('${a}')">${a}</button>`).join('')}
+async function goArea(a){cur=a;tabs();$('f_loc').value=a;load();
+ let d;try{d=await j('/api/area/'+a)}catch(e){$('area').innerHTML=`<div class="card">${esc(e.message)} <button onclick="realLoad()">Load real market data</button></div>`;return}
+ const m=d.market,r=d.reference_home,rr=r&&r.returns,res=d.research;
+ $('area').innerHTML=`<div class="card"><h2 style="margin:0 0 4px">${esc(m.locality)}</h2>
+ <div class="m">Asking-price benchmark ₹${m.ref_psf_low?.toLocaleString('en-IN')}–${m.ref_psf_high?.toLocaleString('en-IN')}/sqft (portal/developer sources, NOT registered deals). Indicative rent ₹${m.rent_psf_month}/carpet sqft/month.</div>
+ ${rr&&rr.scenarios?`<div class="grid" style="margin-top:10px"><div class="kpi"><b>${fmt(r.price)}</b><span>${esc(r.desc)}</span></div>
+ <div class="kpi"><b>${rr.gross_yield_pct}%</b><span>Gross yield (${fmt(rr.expected_rent_month)}/mo)</span></div>
+ <div class="kpi"><b>${rr.scenarios.bear.unlevered_irr_pct}% / ${rr.scenarios.base.unlevered_irr_pct}% / ${rr.scenarios.bull.unlevered_irr_pct}%</b><span>10y IRR bear / base / bull</span></div>
+ <div class="kpi"><b>${fmt(rr.cost.all_in-r.price)}</b><span>Duty, GST &amp; fees on top</span></div></div>`:''}
+ <p class="w" style="font-size:13px">${esc(m.note)}</p>
+ <details><summary>Sources</summary>${m.sources.map(u=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></div>`).join('')}</details>
+ <div class="row" style="margin-top:10px"><button onclick="research('${a}')">Research live (web)</button><span id="rs" class="m">${res?'Last run '+esc(res.fetched_at):''}</span></div>
+ ${res?renderRes(res):''}</div>`}
+function renderRes(r){return `<div style="margin-top:10px"><p>${esc(r.price_trend||'')}</p><p>${esc(r.rent_trend||'')}</p>
+ ${(r.active_projects||[]).map(p=>`<div>• <b>${esc(p.name)}</b> ${esc(p.builder)} – ${esc(p.indicative_price)} <a href="${esc(p.url)}" target="_blank" rel="noopener">source</a> <span class="m">${esc(p.note)}</span></div>`).join('')}
+ ${(r.listing_snapshots||[]).map(p=>`<div>• ${esc(p.title)} – ${esc(p.price)} <a href="${esc(p.url)}" target="_blank" rel="noopener">source</a></div>`).join('')}
+ ${(r.risks||[]).map(x=>'<div class="w">⚠ '+esc(x)+'</div>').join('')}${(r.gaps||[]).map(x=>'<div class="m">Not found: '+esc(x)+'</div>').join('')}
+ <div class="m">Web claims, unverified. Not registered transactions.</div></div>`}
+async function research(a){$('rs').textContent='Researching… (up to a minute)';
+ try{const r=await j('/api/area/'+a+'/research',{method:'POST'});if(r.error){$('rs').textContent=r.error;return}goArea(a)}catch(e){$('rs').textContent=e.message}}
+async function realLoad(){await j('/api/real/load',{method:'POST'});goArea(cur)}
+(async()=>{const s=await j('/api/status');if(!s.counts.market)await j('/api/real/load',{method:'POST'});goArea('Chembur')})();
 </script></body></html>

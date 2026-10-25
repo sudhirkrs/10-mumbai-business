@@ -52,3 +52,32 @@ def test_paste_endpoint():
     r = c.post("/api/ingest/text", json={"text": "1BHK 450 sqft carpet Chembur Mock Gardens 1.3 Cr", "source": "instagram"})
     assert r.status_code == 200 and r.json()["source"] == "instagram"
     assert c.post("/api/ingest/text", json={"text": "nice flat"}).status_code == 422
+
+
+def test_real_mode_and_fallback_never_strong_buy():
+    assert c.post("/api/real/load").json()["markets"] == 5
+    r = c.post("/api/ingest/text", json={"text": "2BHK 600 sq ft carpet Chembur 1.6 Cr ready to move", "source": "facebook"}).json()
+    rep = c.post(f"/api/listings/{r['id']}/report", json={}).json()
+    assert rep["price_check"]["confidence"] == "low" and rep["price_check"]["tier"] == "area-asking-benchmark"
+    assert rep["rules_verdict"] == "VERIFY FIRST"
+
+
+def test_igr_paste():
+    txt = "2026-03-14  Flat 12, Sunrise CHS  Consideration 1,85,00,000  Area 55.7 sq.mt\n14/04/2026 Flat 4 value 2,10,00,000 area 640 sq ft"
+    rows = c.post("/api/ingest/igr-text", json={"text": txt, "locality": "Chembur", "project_name": "Sunrise CHS"})
+    assert rows.json()["imported"] == 2
+    t = [x for x in store.all_("transactions") if x["project_name"] == "Sunrise CHS"]
+    assert abs(t[0]["area_sqft"] - 599.5) < 1 and t[0]["agreement_value"] == 18_500_000
+
+
+def test_rera_paste_rules():
+    r = c.post("/api/ingest/rera-text", json={"text": "Project X  Registration P51900012345  Status: Lapsed"})
+    assert r.json()["status"] == "lapsed"
+
+
+def test_area_endpoint_and_research_without_key():
+    c.post("/api/real/load")
+    a = c.get("/api/area/Andheri").json()          # matches Andheri West/East
+    assert a["reference_home"]["returns"]["scenarios"]["base"] and a["market"]["sources"]
+    assert "error" in c.post("/api/area/Sion/research").json()   # no key: honest error, no fake data
+    assert c.get("/api/area/Nowhere").status_code == 404
