@@ -1,6 +1,6 @@
 # SMERGERS: 20 most recently listed India businesses
 
-Pulled 24 Oct to 9 Nov 2026 session (9 Nov) from SMERGERS, sorted by Recently Listed. All figures are seller-reported and unverified. Run-rate is annual. Rows are in SMERGERS's newest-first order.
+Pulled on 9 Nov 2026 from SMERGERS, sorted by Recently Listed. All figures are seller-reported and unverified. Run-rate is annual. Rows are in SMERGERS's newest-first order.
 
 | # | Business | Run-rate sales | EBITDA margin | Ask (INR) | Ask (USD) | Seller's reason | Link |
 |---|---|---|---|---|---|---|---|
